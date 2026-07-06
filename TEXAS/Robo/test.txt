@@ -1,0 +1,50 @@
+void setup()
+{
+ 
+  /* Motor Pin Initialization */
+  pinMode(54,OUTPUT);
+  pinMode(70,OUTPUT);
+  pinMode(32,OUTPUT);
+  pinMode(31,OUTPUT);
+  pinMode(55,OUTPUT);
+  pinMode(71,OUTPUT);
+  
+}
+
+void loop()
+{
+
+   Forward(100,100); //Both Wheels moving Forward
+   delay(5000);
+   left(100,100); //Both Wheels moving Reverse
+   delay(50o);
+  
+}
+   
+  
+
+void Forward(int i,int j) // First Argument is PWM for Right and Second 
+                          //Argument is PWM for Left
+{
+ digitalWrite(55,HIGH);//SLP R
+ digitalWrite(54,LOW); // DIR R
+  
+ digitalWrite(71,HIGH);//SLP L
+ digitalWrite(70,LOW); //DIR L
+  
+ analogWrite(31,j); // PWM L
+ analogWrite(32,i); //PWM R
+}
+
+void left(int i,int j) // First Argument is PWM for Right and Second 
+                          //Argument is PWM for Left
+{
+ digitalWrite(55,LOW);//SLP R
+ digitalWrite(54,LOW); // DIR R
+  
+ digitalWrite(71,HIGH);//SLP L
+ digitalWrite(70,HIGH); //DIR L
+  
+ analogWrite(31,j); // PWM L
+ analogWrite(32,i); //PWM R
+}
